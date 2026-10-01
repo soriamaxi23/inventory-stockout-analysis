@@ -6,6 +6,8 @@
 
 *Synthetic dataset, designed to reproduce a realistic retail operations scenario (see full note at the end).*
 
+![Inventory Stockout Risk Analysis Dashboard](dashboard.png)
+
 ## Executive summary
 
 | KPI | Result |
