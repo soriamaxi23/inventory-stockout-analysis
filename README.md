@@ -53,8 +53,8 @@ Prioritize immediate restocking of the 2 products in URGENT status: they combine
 
 This analysis is solved in two distinct layers over the same data:
 
-- **Google Sheets** (`Inventory_Stockout_Analysis.xlsx`): VLOOKUP to relate tables, SUMIF/COUNTIFS for conditional aggregations, nested IF to classify risk, conditional formatting for the visual indicator, and a dashboard with 3 charts and KPIs.
-- **SQL** (`Inventory_Stockout_Analysis.sql`, SQLite): the same logic translated — LEFT JOIN instead of VLOOKUP (so a product with no sales doesn't disappear), GROUP BY instead of SUMIF, CASE WHEN instead of nested IF, and CTEs inside a view to chain the coverage and risk calculations, on a typed schema with primary and foreign keys. Also includes a category-summary query with conditional aggregation (SUM + CASE WHEN) and the share of products at risk. To reproduce it, follow the setup instructions at the top of the .sql file (import the two CSVs as tables named productos and ventas).
+- **Google Sheets** (`sheets/Inventory_Stockout_Analysis.xlsx`): VLOOKUP to relate tables, SUMIF/COUNTIFS for conditional aggregations, nested IF to classify risk, conditional formatting for the visual indicator, and a dashboard with 3 charts and KPIs.
+- **SQL** (`sql/Inventory_Stockout_Analysis.sql`, SQLite): the same logic translated — LEFT JOIN instead of VLOOKUP (so a product with no sales doesn't disappear), GROUP BY instead of SUMIF, CASE WHEN instead of nested IF, and CTEs inside a view to chain the coverage and risk calculations, on a typed schema with primary and foreign keys. Also includes a category-summary query with conditional aggregation (SUM + CASE WHEN) and the share of products at risk. To reproduce it, follow the setup instructions at the top of the .sql file (import the two CSVs as tables named productos and ventas).
 
 Both versions produce the same risk classifications and main KPIs (the same 2 URGENT and 3 ATTENTION products, the same category pattern). The SQL version does not include the revenue-exposure calculation, which lives only in the spreadsheet.
 
