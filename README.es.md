@@ -6,6 +6,8 @@
 
 *Dataset sintético, diseñado para reproducir un escenario realista de operaciones retail (ver nota completa al final).*
 
+![Dashboard del análisis](Dashboard.png)
+
 ## Resumen ejecutivo
 
 | KPI | Resultado |
