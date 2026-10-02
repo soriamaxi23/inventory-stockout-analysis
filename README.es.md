@@ -53,8 +53,8 @@ Priorizar la reposición inmediata de los 2 productos en estado URGENTE: combina
 
 Este análisis está resuelto en dos capas distintas sobre los mismos datos:
 
-- **Google Sheets** (`Inventory_Stockout_Analysis.xlsx`): VLOOKUP para relacionar tablas, SUMIF/COUNTIFS para agregaciones, IF anidado para clasificar riesgo, formato condicional para el semáforo visual, y un dashboard con 3 gráficos y KPIs.
-- **SQL** (`Inventory_Stockout_Analysis.sql`, SQLite): la misma lógica traducida — LEFT JOIN en lugar de VLOOKUP (así un producto sin ventas no desaparece), GROUP BY en lugar de SUMIF, CASE WHEN en lugar del IF anidado, y CTEs dentro de una vista para encadenar los cálculos de cobertura y riesgo, sobre un esquema tipado con claves primaria y foránea. Incluye además una consulta de resumen por categoría con agregación condicional (SUM + CASE WHEN) y el porcentaje de productos en riesgo. Para reproducirla, seguí las instrucciones al inicio del archivo .sql (importar los dos CSV como tablas llamadas productos y ventas).
+- **Google Sheets** (`sheets/Inventory_Stockout_Analysis.xlsx`): VLOOKUP para relacionar tablas, SUMIF/COUNTIFS para agregaciones, IF anidado para clasificar riesgo, formato condicional para el semáforo visual, y un dashboard con 3 gráficos y KPIs.
+- **SQL** (`sql/Inventory_Stockout_Analysis.sql`, SQLite): la misma lógica traducida — LEFT JOIN en lugar de VLOOKUP (así un producto sin ventas no desaparece), GROUP BY en lugar de SUMIF, CASE WHEN en lugar del IF anidado, y CTEs dentro de una vista para encadenar los cálculos de cobertura y riesgo, sobre un esquema tipado con claves primaria y foránea. Incluye además una consulta de resumen por categoría con agregación condicional (SUM + CASE WHEN) y el porcentaje de productos en riesgo. Para reproducirla, seguí las instrucciones al inicio del archivo .sql (importar los dos CSV como tablas llamadas productos y ventas).
 
 Ambas versiones producen las mismas clasificaciones de riesgo y KPIs principales (los mismos 2 productos URGENTE y 3 ATENCIÓN, el mismo patrón por categoría). La versión SQL no incluye el cálculo de exposición de ventas, que vive solo en la planilla.
 
